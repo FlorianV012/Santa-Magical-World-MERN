@@ -15,7 +15,7 @@ exports.indexToys = (req, res, next) => {
 
 // Show toy
 exports.getOneToy = (req, res, next) => {
-  Toy.findOne({ id: req.params.id })
+  Toy.findOne({ _id: req.params.id })
     .then(async (toy) => {
       let categoryName;
 
@@ -28,7 +28,7 @@ exports.getOneToy = (req, res, next) => {
       });
 
       let displayToy = {
-        id: toy.id,
+        id: toy._id,
         category: categoryName,
         name: toy.name,
         description: toy.description,
